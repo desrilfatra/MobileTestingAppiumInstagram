@@ -24,6 +24,7 @@ exports.config = {
     //
     specs: [
         // ToDo: define location for spec files here
+        './tests/spec/**.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -52,13 +53,15 @@ exports.config = {
     // https://saucelabs.com/platform/platform-configurator
     //
     capabilities: [{
-        // capabilities for local Appium web tests on an Android Emulator
-        platformName: 'Android',
-        browserName: 'Chrome',
-        'appium:deviceName': 'Android GoogleAPI Emulator',
-        'appium:platformVersion': '12.0',
-        'appium:automationName': 'UiAutomator2'
-    }],
+        "appium:platformName": "Android",
+        "appium:platformVersion": "12",
+        "appium:automationName": "UIAutomator2",
+        "appium:appPackage": "com.instagram.android",
+        "appium:appActivity": "com.instagram.mainactivity.MainActivity",
+        "appium:noReset": true,
+        "appium:autoGrantPermissions": true,
+        "appium:forceApplication": true
+      }],
 
     //
     // ===================
@@ -107,7 +110,7 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['appium'],
+    services: [],
 
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
